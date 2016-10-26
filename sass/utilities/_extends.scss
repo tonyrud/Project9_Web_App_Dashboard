@@ -1,0 +1,27 @@
+%marginAuto {
+  margin : 0 auto;
+}
+
+%marginTopBottom {
+  margin: 1em 0 ;
+}
+
+%h1Font {
+  font-size: 2em;
+}
+
+%h2Font {
+  font-size: 1.125em;
+}
+
+%centered {
+  text-align: center;
+}
+
+%borderbottom {
+  border-bottom: 1px solid $lineColor;
+}
+
+%borderRadius {
+  border-radius: 1em;
+}

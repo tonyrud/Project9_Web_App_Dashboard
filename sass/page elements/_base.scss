@@ -1,0 +1,56 @@
+* {
+  text-decoration: none;
+}
+
+body {
+  background: $background;
+  color: $whiteFontColor;
+  font-family: $fontFam;
+}
+
+a {
+  color: $whiteFontColor;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.line {
+	@include accentLine(1px, $lineWidth);
+}
+
+.section {
+  text-align: center;
+  color: $grayLightColor;
+}
+
+.section > h1 {
+  @extend %h1Font;
+  @extend %marginTopBottom;
+}
+
+.section > h2 {
+  @extend %h2Font;
+  @extend %marginTopBottom;
+  text-transform: uppercase;
+}
+
+// Background mockup styles
+
+.mockup {
+  width: 100%;
+  max-width: 1200px;
+  height: 2000px;
+  @include mQuery(tablet){
+    background-image: url("../dashboard.png");
+    top: 0px;
+    margin: auto;
+    z-index: -1000;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    background-repeat: no-repeat;
+  }
+
+}

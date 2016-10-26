@@ -1,0 +1,42 @@
+.section .card {
+  @extend %borderRadius;
+  border: 1px $grayLightColor solid;
+  margin: 2em auto;
+  width: 80%;
+  max-width: 400px;
+
+  ul {
+    margin: 5px auto;
+    @include flexCenter(row);
+    justify-content: space-around;
+    padding: 0 3em;
+
+     li:first-of-type {
+       @include iconSize($iconSmall*1.2);
+      background: $lightPurple;
+      border-radius: 50%;
+      margin: 5px;
+      @include flexCenter(row);
+    }
+
+    svg {
+      width: 50%;
+      fill: white;
+      padding: 10px;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      margin: 5px 0;
+      font-weight: 600;
+      color: $lightPurple;
+      text-align: left;
+    }
+    p {
+      font-size: 2em;
+      font-weight: 300;
+      color: lighten($grayDarkColor, 20%);
+    }
+  }
+
+}

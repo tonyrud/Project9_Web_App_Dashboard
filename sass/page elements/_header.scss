@@ -1,0 +1,137 @@
+header {
+  background: $lightPurple;
+
+  @include mQuery(mobile) {
+    height: 70px;
+    padding: 0 25px;
+  }
+
+  .icon {
+    margin: 0 1em;
+    align-self: baseline;
+		width      : 50px;
+		height     : 50px;
+    justify-content: flex-start;
+		// background : red;
+		@include mQuery(mobile) {
+				display : none;
+		}
+
+		.hamburger {
+				// @include           translateAnim($animSpeed, $animEasing);
+				width            : 30px;
+				height           : 2px;
+				background-color : $whiteFontColor;
+        position: absolute;
+        top: -7px;
+		}
+
+		.line-top {
+				transform : translateY(30px);
+		}
+
+		.line-mid {
+				transform : translateY(40px) scaleX(1);
+		}
+
+		.line-bottom {
+				transform : translateY(50px);
+		}
+
+		.line-top-anim {
+				transform : translateY(40px) rotate(45deg);
+		}
+
+		.line-mid-anim {
+				transform : translateY(40px) scale(0);
+		}
+
+		.line-bottom-anim {
+				transform : translateY(40px) rotate(-45deg);
+		}
+}
+
+}
+
+header,
+#nav,
+#profile {
+  @include flexCenter(row);
+
+  @include mQuery(mobile){
+    @include flexCenter(row);
+  }
+
+}
+
+#nav {
+  width: 100%;
+  justify-content: flex-end;
+  @include mQuery(mobile) {
+
+  }
+
+}
+
+#logo {
+  // margin-right: auto;
+    h1 {
+      font-size: $fontMedium;
+      padding: 5px;
+      font-weight: bold;
+      @include mQuery(mobile){
+        font-size: $fontMedium;
+      }
+    }
+}
+
+#bell-icon {
+    padding: 15px;
+    // position: absolute;
+    top: 0px;
+    right: 0px;
+
+    @include iconSize($iconSmall*.7);
+
+    @include mQuery(mobile){
+      @include iconSize($iconSmall*.8);
+      position: inherit;
+    }
+}
+
+#profile {
+  border: none;
+
+  @include mQuery(mobile){
+    height: 40px;
+    border-left: 1px solid $darkPurple;
+  }
+
+
+  #profile-icon {
+    @include iconSize($iconLarge*.6);
+
+    overflow: hidden;
+    padding: 15px;
+
+    @include mQuery(mobile){
+      @include iconSize($iconSmall);
+    }
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+   h5 {
+     display: none;
+     padding: .5em 0;
+     font-weight: 400;
+     font-size: $fontLarge;
+     @include mQuery(mobile){
+       display: inline;
+       padding: 0;
+       font-size: $fontSmall;;
+     }
+   }
+
+}

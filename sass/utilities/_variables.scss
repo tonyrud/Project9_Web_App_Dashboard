@@ -1,0 +1,37 @@
+
+// Site color variables
+$background        : #eee;
+$whiteFontColor     : #fff;
+$grayLightColor     : #888;
+$grayDarkColor     : #222;
+$lightPurple      : #7477bf;
+$darkPurple      : #4e4a71;
+$lightGreen      : #81c98f;
+
+$lineColor     : rgba(0, 0, 0, .1);
+
+//Font variables
+$fontSmall  : .75em;
+$fontMedium        : 1.2em;
+$fontLarge         : 2em;
+$fontFam           : 'Open Sans', sans-serif;
+
+// Media query breakpoints
+$break-mobile      : 450px;
+$break-tablet      : 768px;
+$break-desktop     : 1024px;
+
+//animation variables
+$transitionWhat: all;
+$transitionSpeed: .4s;
+$transitionDelay: .3s;
+$transitionStyle: ease-in-out;
+
+//Buttons and icons variables
+$iconSmall: 34px;
+$iconLarge: 55px;
+$lineWidth         : 90%;
+
+$can-toggle-off-color: #777;
+  $can-toggle-on-color: #5fc054;
+  $can-toggle-inactive-text: rgba(white, 0.5);
