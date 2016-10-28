@@ -149,22 +149,16 @@ button[type='submit'] {
 
 .icon .hamburger {
   transition: all 0.6s 0s cubic-bezier(1, -0.3, 0.35, 1.335); }
-
 .icon .line-top {
   transform: translateY(30px); }
-
 .icon .line-mid {
   transform: translateY(40px) scaleX(1); }
-
 .icon .line-bottom {
   transform: translateY(50px); }
-
 .icon .line-top-anim {
   transform: translateY(40px) rotate(45deg); }
-
 .icon .line-mid-anim {
   transform: translateY(40px) scale(0); }
-
 .icon .line-bottom-anim {
   transform: translateY(40px) rotate(-45deg); }
 
@@ -395,15 +389,13 @@ main #chart-links {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  align-items: center;
-  padding: 0 1em; }
+  align-items: center; }
 
 .new-member {
   display: flex;
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  justify-content: flex-start;
   width: 100%; }
   .new-member ul:first-of-type li:first-of-type {
     width: 68px;
@@ -417,12 +409,12 @@ main #chart-links {
     .new-member li img {
       width: 100%;
       border-radius: 50%; }
-    .new-member li .name {
+    .new-member li h1 {
       font-size: .9em; }
-    .new-member li .email {
+    .new-member li h3 {
       color: #7477bf;
       font-weight: 300; }
-    .new-member li .date {
+    .new-member li p {
       font-weight: 300; }
 
 .members {
@@ -454,3 +446,5 @@ main #chart-links {
       font-weight: 300; }
     .recent-member li p {
       font-weight: 300; }
+
+/*# sourceMappingURL=applicationstyles.css.map */

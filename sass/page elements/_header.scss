@@ -1,5 +1,9 @@
 header {
   background: $lightPurple;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 
   @include mQuery(mobile) {
     height: 70px;
@@ -7,6 +11,7 @@ header {
   }
 
   .icon {
+    cursor: pointer;
     margin: 0 1em;
     align-self: baseline;
 		width      : 50px;
@@ -18,36 +23,12 @@ header {
 		}
 
 		.hamburger {
-				// @include           translateAnim($animSpeed, $animEasing);
-				width            : 30px;
+				width            : 24px;
 				height           : 2px;
 				background-color : $whiteFontColor;
         position: absolute;
         top: -7px;
-		}
-
-		.line-top {
-				transform : translateY(30px);
-		}
-
-		.line-mid {
-				transform : translateY(40px) scaleX(1);
-		}
-
-		.line-bottom {
-				transform : translateY(50px);
-		}
-
-		.line-top-anim {
-				transform : translateY(40px) rotate(45deg);
-		}
-
-		.line-mid-anim {
-				transform : translateY(40px) scale(0);
-		}
-
-		.line-bottom-anim {
-				transform : translateY(40px) rotate(-45deg);
+        border-radius: 5px;
 		}
 }
 

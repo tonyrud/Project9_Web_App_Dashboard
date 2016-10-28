@@ -1,0 +1,39 @@
+.members {
+  @include flexCenter(column);
+}
+
+.recent-member {
+  @include flexCenter(row);
+  justify-content: space-around;
+  width: 100%;
+  ul {
+    text-align: left;
+  }
+
+  li {
+    margin: .7em 0;
+    margin-left: auto;
+
+    img {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    h1 {
+    font-size: 1.1em;
+    font-weight: 700;
+
+    }
+
+    h3 {
+      color: $lightPurple;
+      font-weight: 300;
+    }
+
+    p {
+      font-weight: 300;
+    }
+
+  }
+
+}

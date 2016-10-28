@@ -9,6 +9,7 @@ $darkPurple      : #4e4a71;
 $lightGreen      : #81c98f;
 
 $lineColor     : rgba(0, 0, 0, .1);
+$overlayColor     : rgba(0, 0, 0, .85);
 
 //Font variables
 $fontSmall  : .75em;
@@ -23,15 +24,12 @@ $break-desktop     : 1024px;
 
 //animation variables
 $transitionWhat: all;
-$transitionSpeed: .4s;
+$transitionSpeed: .6s;
 $transitionDelay: .3s;
-$transitionStyle: ease-in-out;
+$transitionEase: ease-in-out;
+$transitionCubic : cubic-bezier(1, -0.3, 0.35, 1.335);
 
 //Buttons and icons variables
 $iconSmall: 34px;
 $iconLarge: 55px;
 $lineWidth         : 90%;
-
-$can-toggle-off-color: #777;
-  $can-toggle-on-color: #5fc054;
-  $can-toggle-inactive-text: rgba(white, 0.5);

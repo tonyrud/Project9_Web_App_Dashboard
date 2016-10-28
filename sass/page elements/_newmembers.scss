@@ -1,29 +1,45 @@
-.member {
-  li:first-of-type{
-    @include iconSize($iconSmall*4);
-    margin: 1.2em auto;
+.members {
+  @include flexCenter(column);
+
+  padding: 0 1em;
+}
+
+.new-member {
+  @include flexCenter(row);
+  // justify-content: space-around;
+  justify-content: flex-start;
+  width: 100%;
+  ul:first-of-type li:first-of-type{
+    @include iconSize($iconSmall*2);
+    // margin: 1.2em auto;
 
   }
+  ul {
+    text-align: left;
+    padding-left: 1em;
+  }
+
   li {
-    margin: .7em auto;
+    margin: .5em 0;
+    margin-left: auto;
 
     img {
       width: 100%;
       border-radius: 50%;
     }
 
-    h1 {
-    font-size: 1.3em;
-    font-weight: 700;
+    .name {
+    font-size: .9em;
+    // font-weight: 700;
 
     }
 
-    h3 {
+    .email {
       color: $lightPurple;
       font-weight: 300;
     }
 
-    p {
+    .date {
       font-weight: 300;
     }
 

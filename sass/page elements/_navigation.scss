@@ -1,18 +1,27 @@
+#main-nav {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 61px;
+}
 
-.nav li {
+.nav:after{
+  content: "";
+  height: 100px;
+  background: black;
 
-  // justify-content: space-between;
 }
 
 .nav {
   background: $darkPurple;
 
-
  li {
    @include flexLeft(row);
+
    cursor: pointer;
-   border-bottom: 1px solid $whiteFontColor;
-   padding: 1em 3em;
+  //  border-bottom: 1px solid $whiteFontColor;
+   padding: 1em;
 
    @include mQuery(mobile){
      // @include iconSize($iconSmall);

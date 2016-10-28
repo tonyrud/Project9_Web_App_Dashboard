@@ -30,8 +30,8 @@
   align-items: center;
 }
 
-// simple animation
-@mixin moveTranstion($what, $speed, $delay, $style) {
+// animation
+@mixin moveTransition($what, $speed, $delay, $style) {
   transition: $what $speed $delay $style;
 }
 

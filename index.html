@@ -37,7 +37,7 @@
             </ul>
         </header>
 
-        <div class="main-nav">
+        <div id="main-nav">
             <ul class="nav">
                 <li>
                     <a href=""><img src="icons/icon-dashboard.svg" alt=""></a>
@@ -64,7 +64,7 @@
 
             <!-- Main Dashboard -->
             <h1>Dashboard</h1>
-
+            <input type="text" name="user" placeholder="Search" class="input">
             <ul id="chart-links">
                 <li class="active">
                     <a href=""></a>Hourly</li>
@@ -75,14 +75,13 @@
                 <li>
                     <a href=""></a>Monthly</li>
             </ul>
-            <div class="button">
+
+            <div class="highlight">
 
             </div>
             <h2>Traffic</h2>
             <div class="traffic chart">
-                <p>
-                    [large chart]
-                </p>
+              <canvas id="trafficChart" width="400" height="400"></canvas>
             </div>
             <div class="line"></div>
         </main>
@@ -91,9 +90,7 @@
         <div class="section">
             <h2>Daily Traffic</h2>
             <div class="daily chart">
-                <p>
-                    [large chart]
-                </p>
+                <canvas id="dailyTrafficChart" width="400" height="400"></canvas>
             </div>
             <div class="line"></div>
         </div>
@@ -102,9 +99,7 @@
         <div class="section">
             <h2>Mobile Users</h2>
             <div class="mobile chart">
-                <p>
-                    [large chart]
-                </p>
+                <canvas id="mobileUsersChart" width="400" height="400"></canvas>
             </div>
             <div class="line"></div>
         </div>
@@ -174,27 +169,77 @@
             <!-- New Members -->
             <div class="section">
                 <h2>New Members</h2>
-                <div class="member">
+                <div class="members">
+                  <div class="new-member">
                     <ul>
                         <li><img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg" alt="" /></li>
+                    </ul>
+                    <ul>
                         <li>
-                            <h1>Member Name</h1></li>
+                            <h1 class="name">Anthony Rudny</h1></li>
                         <li>
-                            <h3>weiser660r@hotmail.com</h3></li>
+                            <a href=""><h3 class="email">weiser660r@hotmail.com</h3></a></li>
                         <li>
-                            <p>10/15/16</p>
+                            <p class="date">10/15/16</p>
                         </li>
                     </ul>
                 </div>
+                  <div class="new-member">
+                    <ul>
+                        <li><img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg" alt="" /></li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <h1 class="name">Sam Smith</h1></li>
+                        <li>
+                            <a href=""><h3 class="email">samr@gmail.com</h3></a></li>
+                        <li>
+                            <p class="date">10/15/16</p>
+                        </li>
+                    </ul>
+                </div>
+                  <div class="new-member">
+                    <ul>
+                        <li><img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg" alt="" /></li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <h1 class="name">Freddy Mercury</h1></li>
+                        <li>
+                            <a href=""><h3 class="email">freddm@hotmail.com</h3></a></li>
+                        <li>
+                            <p class="date">10/15/16</p>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+
                 <div class="line"></div>
             </div>
         </div>
         <!-- Recent Activity -->
         <div class="section">
             <h2>Recent Activity</h2>
-            <div class="member">
+            <div class="recent-member">
                 <ul>
-                    <li><img src="https://s3.amazonaws.com/uifaces/faces/twitter/vladarbatov/128.jpg" alt="" /></li>
+                    <li>
+                        <h3>Anthony Rudny commented on Apples CEO</h3></li>
+                    <li>
+                        <p>4 hours ago</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="recent-member">
+                <ul>
+                    <li>
+                        <h3>Anthony Rudny commented on Apples CEO</h3></li>
+                    <li>
+                        <p>4 hours ago</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="recent-member">
+                <ul>
                     <li>
                         <h3>Anthony Rudny commented on Apples CEO</h3></li>
                     <li>
@@ -209,7 +254,7 @@
             <h2>Message User</h2>
             <div class="">
                 <input type="text" name="user" placeholder="Search for user" class="input">
-                <textarea class="message-box input" name="name" rows="8" cols="40" placeholder="Type you message here"></textarea>
+                <textarea class="message-box input" name="name" rows="8" cols="40" placeholder="Type your message here"></textarea>
                 <button aria-describedby="submit-info" type="submit">Send</button>
             </div>
             <div class="line"></div>
@@ -260,6 +305,11 @@
     <footer>
 
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
+    </script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js'></script>
+		<script src='js/charts.js'></script>
+		<script src='js/interactive.js'></script>
 </body>
 
 </html>
