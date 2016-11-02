@@ -1,19 +1,78 @@
 main {
+  margin-top: 4em;
+
+  .alert {
+    background: $alertColor;
+    padding: 0 1.15em;
+    @include flexCenter(row);
+    min-width: 270px;
+    width: 80%;
+    margin: 0 auto 1em;
+    border-radius: .5em;
+
+    p{
+      color: $whiteFontColor;
+      font-weight: 300;
+      text-align: left;
+      font-size: .8em;
+      strong {
+        font-weight: bold;
+
+      }
+    }
+
+    .fa {
+      color: $alertColorLight;
+      font-size: 1.3em;
+      margin: .3em 0 .3em auto;
+      cursor: pointer;
+      transition: color .4s ease-in-out;
+
+
+      &:hover {
+        color: $whiteFontColor;
+      }
+    }
+
+  }
+
+  #dashboard-text{
+    margin-bottom: .5em;
+  }
+
 
   #chart-links {
     @include flexCenter(row);
     margin: 2em;
+    font-size: .9em;
 
     li {
-			cursor: pointer;
+      cursor: pointer;
 	    padding: .25em 1em;
 	    border-radius: 3em;
-      // background: $background;
+
+
+      a {
+        color: $grayLightColor;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          color: $darkPurple;
+        }
+
+      }
     }
 
 		.active {
-			color: $whiteFontColor;
+      a {
+        color: $whiteFontColor;
+        &:hover {
+          color: $whiteFontColor;
+        }
+      }
+
 			background: $lightGreen;
+
 
 		}
   }

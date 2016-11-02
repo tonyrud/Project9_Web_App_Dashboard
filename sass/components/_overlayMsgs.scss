@@ -1,0 +1,18 @@
+.overlay {
+  position: absolute;
+  top: 57%;
+  left: 10%;
+  display: none;
+  background: $overlayColor;
+  width: 80%;
+  opacity: 0;
+  border-radius: .5em;
+
+  .msgContainer {
+    color: $whiteFontColor;
+    padding: 2em;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+}

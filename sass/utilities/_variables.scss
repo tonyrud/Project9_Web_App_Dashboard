@@ -7,9 +7,11 @@ $grayDarkColor     : #222;
 $lightPurple      : #7477bf;
 $darkPurple      : #4e4a71;
 $lightGreen      : #81c98f;
+$alertColor : rgba(191,116,143,1);
+$alertColorLight : rgba($whiteFontColor,.5);
 
 $lineColor     : rgba(0, 0, 0, .1);
-$overlayColor     : rgba(0, 0, 0, .85);
+$overlayColor     : rgba(116, 119, 191, .75);
 
 //Font variables
 $fontSmall  : .75em;

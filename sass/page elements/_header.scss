@@ -12,9 +12,9 @@ header {
 
   .icon {
     cursor: pointer;
-    margin: 0 1em;
+    margin-left: 1em;
     align-self: baseline;
-		width      : 50px;
+		width      : 24px;
 		height     : 50px;
     justify-content: flex-start;
 		// background : red;
@@ -27,16 +27,46 @@ header {
 				height           : 2px;
 				background-color : $whiteFontColor;
         position: absolute;
-        top: -7px;
+        top: -15px;
         border-radius: 5px;
 		}
-}
+  }
+
+  .pop-notification {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background: $whiteFontColor;
+    color: $lightPurple;
+    border: 1px solid $lineColor;
+    display: none;
+
+
+    h3 {
+      font-size: 1.2em;
+      padding: .6em .5em;
+      border-bottom: 1px $lineColor solid;
+    }
+
+    li{
+      padding: 1.6em 1em;
+      background: darken($whiteFontColor, 5%);
+      border-bottom: 1px $lineColor solid;
+      font-weight: 300;
+    }
+
+    li:last-of-type {
+      border: none;
+    }
+
+  }
 
 }
 
 header,
 #nav,
-#profile {
+#profile,
+#profile-container {
   @include flexCenter(row);
 
   @include mQuery(mobile){
@@ -45,20 +75,29 @@ header,
 
 }
 
-#nav {
+#profile-container {
   width: 100%;
   justify-content: flex-end;
   @include mQuery(mobile) {
 
   }
-
+  .profile-alert {
+    @include iconSize(12px);
+    background: $alertColor;
+    position: absolute;
+    left: 12px;
+    top: -3px;
+    border-radius: 50%;
+    border: 1px solid $whiteFontColor;
+  }
 }
 
 #logo {
-  // margin-right: auto;
+  margin-left: 1em;
+
     h1 {
       font-size: $fontMedium;
-      padding: 5px;
+      padding: 15px;
       font-weight: bold;
       @include mQuery(mobile){
         font-size: $fontMedium;
@@ -67,8 +106,8 @@ header,
 }
 
 #bell-icon {
-    padding: 15px;
-    // position: absolute;
+    padding: 1px;
+    position: relative;
     top: 0px;
     right: 0px;
 
@@ -82,6 +121,8 @@ header,
 
 #profile {
   border: none;
+  @include iconSize($iconSmall);
+  margin: 0 0.8em;
 
   @include mQuery(mobile){
     height: 40px;
@@ -93,7 +134,6 @@ header,
     @include iconSize($iconLarge*.6);
 
     overflow: hidden;
-    padding: 15px;
 
     @include mQuery(mobile){
       @include iconSize($iconSmall);

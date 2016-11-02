@@ -4,38 +4,20 @@ var trafficLine = $("#trafficChart");
 var trafficBar = $("#dailyTrafficChart");
 var mobileUsersChart = $("#mobileUsersChart");
 
+//chart colors
 var chartPurpleColor = 'rgba(116,119,191,1)';
-var chartBlueColor = '#7bb1be';
+var chartBlueColor = 'rgba(123,177,190,1)';
 var chartGreenColor = 'rgba(129,201,143,1)';
+var charPinkColor = 'rgba(191,116,143,1)';
 var chartLighterPurpleColor = 'rgba(116,119,191,.2)';
+var chartLighterGreenColor = 'rgba(129,201,143,.2)';
+var chartLighterBlueColor = 'rgba(123,177,190,.2)';
+var chartLighterPinkColor = 'rgba(191,116,143,.2)';
 
-var trafficChart = new Chart(trafficLine, {
-    type: 'line',
-    data: {
-        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
-        datasets: [{
-            label: 'Traffic',
-            data: [500, 546, 1000, 800, 1856, 1500, 876, 2000, 1600, 2300, 1999],
-            backgroundColor: chartLighterPurpleColor,
-            borderColor: chartPurpleColor,
-            borderWidth: 1.5,
-            radius: 6
+Chart.defaults.global.elements.point.backgroundColor = chartBlueColor
+Chart.defaults.global.elements.point.hoverRadius = 8
 
-        }]
-    },
-    options: {
-        legend: false,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: false
-                }
-            }]
-        }
-    }
-});
-
-var trafficDailyChart = new Chart(trafficBar, {
+var trafficBarChart = new Chart(trafficBar, {
     type: 'bar',
     data: {
         labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -69,20 +51,28 @@ var trafficDailyChart = new Chart(trafficBar, {
 var mobileChart = new Chart(mobileUsersChart, {
     type: 'doughnut',
     data: {
-        labels: ["Phone", "Tablet", "Desktop"],
+        labels: ["Phone", "Tablet", "Desktop", "Other"],
         datasets: [{
             label: 'Traffic',
-            data: [20, 50, 30],
+            data: [20, 50, 30, 10],
             backgroundColor: [
                 chartPurpleColor,
                 chartBlueColor,
-                chartGreenColor
+                chartGreenColor,
+                charPinkColor
             ],
             borderWidth: 0
 
         }]
     },
     options: {
+      legend: {
+        labels: {
+          fontSize: 12,
+          padding: 15
+        },
+        position: 'top'
+      },
         animation: {
             animateScale: true
         },

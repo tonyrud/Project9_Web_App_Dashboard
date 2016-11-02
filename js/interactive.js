@@ -1,4 +1,11 @@
 (function($) {
+    'use strict';
+    /*
+    list to complete:
+    add "click" for notification popups
+    save settings to local storage
+    icons for different posts
+    */
 
     /*****************
     Variables
@@ -7,46 +14,265 @@
     // Top nav variables
     var $nav = $('#main-nav');
     var $icon = $('.icon');
-    var animSlideSpeed = 400;
+    var animSlideSpeed = 450;
     var lineTop = $('.line-top');
     var lineMid = $('.line-mid');
     var lineBottom = $('.line-bottom');
+    var alertClose = $('.close-btn');
+    var sendMessage = $('.sendMessage');
+    var bellAlert = $('#bell-icon');
 
     //Dashboard variables
     var $chartNav = $('#chart-links li')
 
-
+    //start nav off the page
     $nav.css('left', -$nav.outerWidth());
 
+    let msg = '<div class="pop-notification"><h3>Notifcations</h3><ul><li>You have a new message!</li><li>A new version is available</li></ul></div>';
+
+    $('header').append(msg);
+
+
     /*****************
-    Click Events
+      Chart creation
     ******************/
+
+    let lineChartBorderWidth = 1.5
+    let lineChartTickRadius = 6
+
+    //Changeable line chart options
+    let chartChangeOptions = {
+        legend: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: false
+                }
+            }]
+        }
+    }
+
+    //Hourly data
+    let hourlyData = {
+        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+        datasets: [{
+            label: 'Traffic',
+            data: [500, 546, 1000, 800, 1856, 1500, 876, 2000, 1600, 2300, 1999],
+            backgroundColor: chartLighterPurpleColor,
+            borderColor: chartPurpleColor,
+            pointColor: "rgba(220,180,0,1)",
+            borderWidth: lineChartBorderWidth,
+            radius: lineChartTickRadius
+
+        }]
+    };
+
+    //Daily data
+    let dailyData = {
+        labels: ["16-22", "23-29", "6-12", "13-19", "27-3", "4-10", "18-24", "25-31"],
+        datasets: [{
+            label: 'Traffic',
+            data: [1700, 1856, 1500, 1200, 1350, 1600, 1500, 1600],
+            backgroundColor: chartLighterGreenColor,
+            borderColor: chartGreenColor,
+            pointColor: "rgba(220,180,0,1)",
+            borderWidth: lineChartBorderWidth,
+            radius: lineChartTickRadius
+
+        }]
+    };
+
+    //Weekly data
+    let weeklyData = {
+        labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26"],
+        datasets: [{
+            label: 'Traffic',
+            data: [500, 1000, 1856, 876, 1600, 1999],
+            backgroundColor: chartLighterBlueColor,
+            borderColor: chartBlueColor,
+            pointColor: "rgba(220,180,0,1)",
+            borderWidth: lineChartBorderWidth,
+            radius: lineChartTickRadius
+
+        }]
+    };
+
+    //Monthly data
+    let monthlyData = {
+        labels: ["16-22", "30-5", "13-19", "27-3", "11-17", "25-31"],
+        datasets: [{
+            label: 'Traffic',
+            data: [500, 546, 1000, 800, 1856, 1230],
+            backgroundColor: chartLighterPinkColor,
+            borderColor: charPinkColor,
+            pointColor: "rgba(220,180,0,1)",
+            borderWidth: lineChartBorderWidth,
+            radius: lineChartTickRadius
+
+        }]
+    };
+
+    // create initial change chart
+    var trafficChangeChart = new Chart(trafficLine, {
+        type: 'line',
+        data: hourlyData,
+        options: chartChangeOptions
+    });
+
+
+
+    /*****************
+      Click Events
+    ******************/
+
+    //Bell icon clicked
+    bellAlert.click(function(event) {
+
+      $('.pop-notification').slideToggle(300,'easeInOutSine');
+    });
+
+    //close alert
+    alertClose.click(function(event) {
+        let clicked = $(this).parent();
+        clicked.slideUp("fast");
+    })
+
+    sendMessage.click(function(event) {
+        var $overlay = $("<div class='overlay'></div>");
+        var $imageContainer = $("<div class='msgContainer'>Message Sent!</div>");
+
+        //add overlay to DOM
+        $overlay.append($imageContainer)
+        $(".message-user").append($overlay);
+
+        //show overlay
+        $overlay.show().animate({
+            opacity: '1',
+            top: '7%'
+        }, 'slow','easeOutBack', function() {
+
+            //wait before removing popup
+            setTimeout(function() {
+                $overlay.animate({
+                  opacity: '0',
+                  top: '-67%'
+                },'slow', 'easeInBack', function(){
+
+                  //remove from DOM after anim complete
+                  $overlay.remove();
+                });
+            }, 1000);
+        });
+    });
 
     //event for nav icon
     $icon.click(function(event) {
-      $nav.css('display', 'block');
+        $nav.css('display', 'block');
 
         lineTop.toggleClass('line-top-anim');
         lineMid.toggleClass('line-mid-anim');
         lineBottom.toggleClass('line-bottom-anim');
 
-        $nav.animate({left: parseInt($nav.css('left'),10) == 0 ? -$nav.outerWidth() :
-        0 },
-        'ease-in-out', function(){
+        //animate nav from side
+        $nav.animate({
+                left: parseInt($nav.css('left'), 10) == 0 ? -$nav.outerWidth() : 0
+            }, animSlideSpeed,
+            'easeInOutSine',
+            function() {
 
-          if (parseInt($nav.css('left'),10) < 0) {
-              //remove from DOM after animation
-              $nav.css('display', 'none');
-          } else {
-          }
-        });
+                if (parseInt($nav.css('left'), 10) < 0) {
+                    //remove from DOM after animation
+                    $nav.css('display', 'none');
+                } else {}
+            });
     });
 
     //event for chart nav
     $chartNav.click(function(event) {
-      let clicked = $(this);
-      $chartNav.removeClass('active');
-      clicked.addClass('active')
+        event.preventDefault();
+        let clicked = $(this);
+        let elText = clicked.children('a').text();
+
+        //button background change class
+        $chartNav.removeClass('active');
+        clicked.addClass('active');
+
+        //change charts
+        if (elText == "Hourly") {
+            trafficChangeChart.config.data = hourlyData;
+            trafficChangeChart.update();
+
+        } else if (elText == "Daily") {
+            trafficChangeChart.config.data = dailyData;
+            trafficChangeChart.update();
+        } else if (elText == "Weekly") {
+            trafficChangeChart.config.data = weeklyData;
+            trafficChangeChart.update();
+        } else {
+            trafficChangeChart.config.data = monthlyData;
+            trafficChangeChart.update();
+        }
+    });
+
+    /*****************
+      Auto-fill events
+    ******************/
+
+    var autofillNames = [
+        'Kaye Mckinny',
+        'April Gloss',
+        'Angelita Gottfried',
+        'Aida Jarret',
+        'Alethea Bengtson',
+        'Coral Stackpole',
+        'Nicholas Traughber',
+        'Drusilla Gushiken',
+        'Curtis Kramp',
+        'Bertie Isenhour',
+        'Daniela Ricci',
+        'Dolores Shimkus',
+        'Shona Mccaughey',
+        'Dinah Premo',
+        'Orlando Harps',
+        'Fredricka Cranfill',
+        'Wynona Petree',
+        'Ronny Holte',
+        'Trina Strandberg',
+        'Janie Blunk',
+        'Wai Mayo',
+        'Wesley Gallaway',
+        'Dewayne Daigneault',
+        'Barbera Ayoub',
+        'Lizbeth Schippers',
+        'Salvatore Bryner',
+        'Johnna Riddick',
+        'Karri Yelvington',
+        'Kaleigh Stowe',
+        'Elliot Para',
+        'Annelle Lona',
+        'Jane Berkeley',
+        'Rochell Owsley',
+        'Maurita Papadopoulos',
+        'Yolonda Heavrin',
+        'Lino Groh',
+        'Alexa Dunton',
+        'Tiara Cappiello',
+        'Joette Lynes',
+        'Mattie Addis',
+        'Ricky Paoletti',
+        'Stephenie Oxendine',
+        'Verona Brandl',
+        'Esther Balls',
+        'Darell Mccallion',
+        'Suellen Tieman',
+        'Juli Jenson',
+        'Etha Collis',
+        'Elvira Brauer',
+        'Jillian Tellier'
+    ];
+
+    $("#user-search").autocomplete({
+        source: autofillNames
     });
 
 

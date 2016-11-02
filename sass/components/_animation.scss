@@ -1,6 +1,6 @@
 .icon {
   .hamburger {
-     @include moveTransition($transitionWhat, $transitionSpeed, 0s, $transitionCubic);
+     @include moveTransition($transitionWhat, $transitionSpeed*.7, 0s, $transitionCubic);
     //  transition: all .3s $transitionCubic;
   }
 

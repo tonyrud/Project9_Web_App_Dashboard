@@ -9,8 +9,10 @@
   // justify-content: space-around;
   justify-content: flex-start;
   width: 100%;
+  margin: .2em 0;
+
   ul:first-of-type li:first-of-type{
-    @include iconSize($iconSmall*2);
+    @include iconSize($iconSmall*1.4);
     // margin: 1.2em auto;
 
   }
