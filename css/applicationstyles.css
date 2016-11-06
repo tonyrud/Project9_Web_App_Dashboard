@@ -122,7 +122,7 @@ textarea {
     right: 30px; } }
 
 .message-box {
-  height: 100px;
+  height: 112px;
   padding-top: 10px; }
 
 .ui-widget {
@@ -161,7 +161,9 @@ button[type='submit'] {
     display: flex;
     flex-flow: row;
     justify-content: center;
-    align-items: center; } }
+    align-items: center;
+    width: 200px;
+    margin: auto; } }
 
 .icon .hamburger {
   transition: all 0.42s 0s cubic-bezier(1, -0.3, 0.35, 1.335); }
@@ -253,7 +255,8 @@ ul {
     .section {
       position: relative;
       text-align: left;
-      padding-left: 1em; } }
+      padding-left: 1em;
+      margin-bottom: 2em; } }
 
 .section > h2 {
   text-transform: uppercase; }
@@ -274,8 +277,7 @@ ul {
 
 @media (min-width: 1024px) {
   .flex-item {
-    width: 480px;
-    border: 1px solid rgba(0, 0, 0, 0.1); } }
+    width: 480px; } }
 
 header {
   background: #7477bf;
@@ -421,7 +423,8 @@ header,
   width: 100%;
   height: 100%;
   top: 50px;
-  left: -350px; }
+  left: -350px;
+  z-index: 100; }
   @media (min-width: 768px) {
     #main-nav {
       display: block;
@@ -455,7 +458,7 @@ header,
     @media (min-width: 768px) {
       .nav li {
         padding: 1em; }
-        .nav li h1 {
+        .nav li p {
           display: none; } }
     .nav li a {
       margin-right: 2em;
@@ -467,6 +470,9 @@ header,
       .nav li a img {
         width: 100%; }
 
+.active {
+  background: #7e79a8; }
+
 main {
   margin-top: 4em;
   margin-left: 0; }
@@ -475,7 +481,7 @@ main {
       margin-top: 1em; } }
   @media (min-width: 1024px) {
     main {
-      margin-left: 80px; } }
+      margin-left: 59px; } }
   main .alert {
     background: #bf748f;
     padding: 0 1.15em;
@@ -538,15 +544,27 @@ main {
 .chart {
   margin: 0 auto 2em;
   padding: 0 2em;
-  max-width: 400px; }
+  max-width: 400px;
+  max-height: 400px;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .chart {
+      max-width: 800px;
+      margin: 0 auto 2em;
+      width: 50%; } }
   @media (min-width: 1024px) {
     .chart {
+      width: 80%;
       margin: 0; } }
   .chart canvas {
     margin: 0 auto; }
+    @media (min-width: 1024px) {
+      .chart canvas {
+        margin: 0; } }
   @media (min-width: 1024px) {
     .chart #trafficChart {
-      width: 800px; } }
+      width: 900px !important;
+      height: 319px !important; } }
 
 .section .card {
   border: 1px #888 solid;
@@ -600,7 +618,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 2em;
     margin: 0.8em 0.8em; } }
 
 .members {

@@ -31,7 +31,8 @@ ul {
   @include mQuery(desktop){
     position: relative;
     text-align: left;
-    padding-left: 1em;;
+    padding-left: 1em;
+    margin-bottom: 2em;
 
   }
 }
@@ -70,7 +71,7 @@ ul {
 .flex-item {
   @include mQuery(desktop){
     width: 480px;
-    border: 1px solid $lineColor;
+    // border: 1px solid $lineColor;
     // padding-left: 1em;
   }
 }

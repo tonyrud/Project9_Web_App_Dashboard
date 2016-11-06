@@ -5,6 +5,7 @@
     height: 100%;
     top: 50px;
     left: -350px;
+    z-index: 100;
 
     @include mQuery(tablet) {
         display: block;
@@ -43,7 +44,7 @@
         @include mQuery(tablet) {
 
           padding: 1em;
-            h1 {
+            p {
                 display: none;
             }
         }
@@ -61,4 +62,8 @@
             }
         }
     }
+}
+
+.active {
+  background: lighten($darkPurple, 20%);
 }

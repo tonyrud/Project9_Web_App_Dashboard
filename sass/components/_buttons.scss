@@ -33,5 +33,7 @@ button[type='submit'] {
 .button-container {
   @include mQuery(tablet){
     @include flexCenter(row);
+    width: 200px;
+    margin: auto;
   }
 }

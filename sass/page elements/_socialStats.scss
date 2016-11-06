@@ -58,7 +58,6 @@ left: 8px;
   @include mQuery(tablet){
     @include flexCenter(row);
     flex-wrap: wrap;
-    padding: 2em;
     margin: 0.8em 0.8em;
   }
 }

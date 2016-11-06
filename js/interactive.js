@@ -15,13 +15,19 @@
     var alertClose = $('.close-btn');
     var sendMessage = $('.sendMessage');
     var bellAlert = $('#bell-icon');
+    var trafficLine = $("#trafficChart");
+
+    var chartPurpleColor = 'rgba(116,119,191,1)';
+    var chartBlueColor = 'rgba(123,177,190,1)';
+    var chartGreenColor = 'rgba(129,201,143,1)';
+    var charPinkColor = 'rgba(191,116,143,1)';
+    var chartLighterPurpleColor = 'rgba(116,119,191,.2)';
+    var chartLighterGreenColor = 'rgba(129,201,143,.2)';
+    var chartLighterBlueColor = 'rgba(123,177,190,.2)';
+    var chartLighterPinkColor = 'rgba(191,116,143,.2)';
 
     //Dashboard variables
-    var $chartNav = $('#chart-links li')
-
-    //start nav off the page
-
-    // $nav.css('left', -$nav.outerWidth());
+    var $chartNav = $('#chart-links li');
 
     //create the Notifcations for header popout
     let msg = '<div class="pop-notification"><h3>Notifcations</h3><ul><li>Adam mentioned you in a comment!</li><li>Tagged in 2 posts</li></ul></div>';
@@ -39,6 +45,8 @@
     //Changeable line chart options
     let chartChangeOptions = {
         legend: false,
+        maintainAspectRatio: false,
+        responsive: true,
         scales: {
             yAxes: [{
                 ticks: {
@@ -46,7 +54,7 @@
                 }
             }]
         }
-    }
+    };
 
     //Hourly data
     let hourlyData = {
@@ -132,7 +140,7 @@
     alertClose.click(function(event) {
         let clicked = $(this).parent();
         clicked.slideUp("fast");
-    })
+    });
 
     //send message overlay
     sendMessage.click(function(event) {
@@ -140,26 +148,26 @@
         var $overlay = $("<div class='overlay'></div>");
 
         var createMsg = function(msg) {
-            imageContainer = "<div class='msgContainer'>"
+            imageContainer = "<div class='msgContainer'>";
             imageContainer += msg;
             imageContainer += "</div>";
-        }
+        };
 
 
         //check form validation
-        if ($('#user-search').val().length == 0 && $('.message-box').val().length == 0) {
+        if ($('#user-search').val().length === 0 && $('.message-box').val().length === 0) {
             createMsg("Please fill out both fields");
-        } else if ($('#user-search').val().length > 0 && $('.message-box').val().length == 0) {
+        } else if ($('#user-search').val().length > 0 && $('.message-box').val().length === 0) {
 
             createMsg("Please type a message");
-        } else if ($('#user-search').val().length == 0 && $('.message-box').val().length > 0) {
+        } else if ($('#user-search').val().length === 0 && $('.message-box').val().length > 0) {
             createMsg("Please find a user");
         } else {
             createMsg("Message Sent");
         }
 
         //add overlay to DOM
-        $overlay.append(imageContainer)
+        $overlay.append(imageContainer);
         $(".message-user").append($overlay);
 
         //show overlay
@@ -313,7 +321,7 @@
 
         //set timezone that is saved
         if (timezone !== null) {
-          $('#timezone').val(timezone)
+          $('#timezone').val(timezone);
         } else {
           $('#timezone').val('gmt');
         }
