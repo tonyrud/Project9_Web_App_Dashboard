@@ -5,20 +5,23 @@ header {
   top: 0;
   z-index: 1000;
 
-  @include mQuery(mobile) {
+
+
+  @include mQuery(tablet) {
     height: 70px;
     padding: 0 25px;
+    position: inherit;
   }
 
   .icon {
     cursor: pointer;
     margin-left: 1em;
     align-self: baseline;
-		width      : 24px;
+		    width: 74px;
 		height     : 50px;
     justify-content: flex-start;
-		// background : red;
-		@include mQuery(mobile) {
+
+    @include mQuery(tablet) {
 				display : none;
 		}
 
@@ -40,6 +43,11 @@ header {
     color: $lightPurple;
     border: 1px solid $lineColor;
     display: none;
+    z-index: 1;
+
+    @include mQuery(desktop){
+      top: 70px;
+    }
 
 
     h3 {
@@ -93,14 +101,17 @@ header,
 }
 
 #logo {
-  margin-left: 1em;
+  // margin-left: 1em;
 
     h1 {
       font-size: $fontMedium;
-      padding: 15px;
-      font-weight: bold;
+      font-weight: 300;
       @include mQuery(mobile){
         font-size: $fontMedium;
+      }
+
+      strong {
+        font-weight: bold;
       }
     }
 }
@@ -115,7 +126,7 @@ header,
 
     @include mQuery(mobile){
       @include iconSize($iconSmall*.8);
-      position: inherit;
+      // position: inherit;
     }
 }
 
@@ -127,6 +138,8 @@ header,
   @include mQuery(mobile){
     height: 40px;
     border-left: 1px solid $darkPurple;
+    width: 150px;
+    margin: 0 0 0 0.8em;
   }
 
 
@@ -151,7 +164,8 @@ header,
      @include mQuery(mobile){
        display: inline;
        padding: 0;
-       font-size: $fontSmall;;
+       font-size: $fontSmall;
+       margin-left: 1em;
      }
    }
 

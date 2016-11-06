@@ -3,7 +3,12 @@
   border: 1px $grayLightColor solid;
   margin: 2em auto;
   width: 80%;
-  max-width: 400px;
+  max-width: 250px;
+
+  @include mQuery(tablet){
+
+    margin: 0.8em 0.8em;
+  }
 
   ul {
     margin: 5px auto;
@@ -25,6 +30,13 @@
       // padding: 10px;
     }
 
+    .twitter-icon {
+      width: 85%;
+      position: relative;
+top: 10px;
+left: 8px;
+    }
+
     h2 {
       font-size: 1.2em;
       margin: 5px 0;
@@ -39,4 +51,14 @@
     }
   }
 
+}
+
+.social-cards{
+
+  @include mQuery(tablet){
+    @include flexCenter(row);
+    flex-wrap: wrap;
+    padding: 2em;
+    margin: 0.8em 0.8em;
+  }
 }

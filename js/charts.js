@@ -24,16 +24,12 @@ var trafficBarChart = new Chart(trafficBar, {
         datasets: [{
             label: 'Traffic',
             data: [50, 150, 198, 200, 95, 42, 215],
-            backgroundColor: [
-                chartPurpleColor,
-                chartPurpleColor,
-                chartPurpleColor,
-                chartPurpleColor,
-                chartPurpleColor,
-                chartPurpleColor,
-                chartPurpleColor
-
-            ]
+            backgroundColor:chartPurpleColor
+        },
+        {
+            label: 'Traffic2',
+            data: [120, 180, 98, 20, 195, 242, 205],
+            backgroundColor:charPinkColor
         }]
     },
     options: {

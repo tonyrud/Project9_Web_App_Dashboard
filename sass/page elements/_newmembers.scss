@@ -2,6 +2,13 @@
   @include flexCenter(column);
 
   padding: 0 1em;
+
+  @include mQuery(tablet){
+    padding: 4em;
+  }
+  @include mQuery(desktop){
+    padding: 0;
+  }
 }
 
 .new-member {

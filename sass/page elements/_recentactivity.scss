@@ -1,5 +1,9 @@
 .recent {
-  padding: 0 1em;
+  // padding: 0 1em;
+
+  @include mQuery(tablet){
+    // padding: 4em;
+  }
 }
 
 .members {
@@ -8,10 +12,21 @@
 
 .recent-member {
   @include flexCenter(row);
-  // justify-content: space-around;
   justify-content: flex-start;
-  // width: 80%;
-  padding: 0 1em;
+
+
+  @include mQuery(tablet){
+    margin-left: 4.2em;
+  }
+  @include mQuery(desktop){
+    margin-left: 0;
+  }
+
+  .icon {
+    width: 3em;
+    padding: .5em;
+    margin-right: .5em;
+  }
 
   ul {
     text-align: left;

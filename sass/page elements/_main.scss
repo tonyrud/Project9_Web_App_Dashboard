@@ -1,5 +1,14 @@
 main {
   margin-top: 4em;
+  margin-left: 0;
+
+  @include mQuery(tablet){
+    margin-top: 1em;
+  }
+  @include mQuery(desktop){
+    margin-left: 80px;
+  }
+
 
   .alert {
     background: $alertColor;
@@ -36,8 +45,13 @@ main {
 
   }
 
-  #dashboard-text{
+  #dashboard-text {
     margin-bottom: .5em;
+
+
+    @include mQuery(tablet){
+      margin-top: 0em;
+    }
   }
 
 
@@ -45,6 +59,12 @@ main {
     @include flexCenter(row);
     margin: 2em;
     font-size: .9em;
+
+    @include mQuery(desktop){
+      position: absolute;
+      top: 121px;
+      right: 20px;
+    }
 
     li {
       cursor: pointer;
@@ -76,14 +96,4 @@ main {
 
 		}
   }
-  // .highlight {
-  //   width: 78px;
-  //   height: 24px;
-  //   background: $lightGreen;
-  //   position: absolute;
-  //   top: 159px;
-  //   left: 29px;
-  //   border-radius: 3em;
-  //   z-index: -100;
-  // }
 }

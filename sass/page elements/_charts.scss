@@ -4,7 +4,19 @@
   max-width: 400px;
   // max-height: 600px;
 
+  @include mQuery(desktop){
+    margin: 0;
+      // max-width: 800px;
+
+  }
+
   canvas {
     margin: 0 auto;
+  }
+
+  #trafficChart {
+    @include mQuery(desktop){
+      width: 800px;
+    }
   }
 }

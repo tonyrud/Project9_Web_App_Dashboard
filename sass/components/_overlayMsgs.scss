@@ -1,7 +1,9 @@
 .overlay {
   position: absolute;
   top: 57%;
-  left: 10%;
+  left: 0;
+  right: 0;
+  margin: auto;
   display: none;
   background: $overlayColor;
   width: 80%;
@@ -9,6 +11,34 @@
   border-radius: .5em;
 
   .msgContainer {
+    color: $whiteFontColor;
+    padding: 2em;
+    font-weight: 700;
+    font-size: 1.2em;
+    text-transform: uppercase;
+  }
+}
+
+
+.timezone-container{
+  position: relative;
+}
+
+.overlay2 {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: none;
+  background: $overlayColor;
+  max-width: 400px;
+  // opacity: 0;
+  width: 80%;
+  border-radius: .5em;
+
+
+  .msgContainer2 {
     color: $whiteFontColor;
     padding: 2em;
     font-weight: 700;

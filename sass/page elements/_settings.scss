@@ -1,0 +1,18 @@
+.container {
+  @include flexCenter(row);
+	margin: 2em auto;
+  justify-content: space-between;
+  padding: 0 1em;
+  max-width: 400px;
+
+  &>p {
+    font-weight: 300;
+    font-size: .9em;
+    flex: 1;
+    text-align: left;
+  }
+}
+
+.timezone-container {
+      text-align: center;
+}

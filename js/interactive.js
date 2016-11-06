@@ -1,11 +1,5 @@
 (function($) {
     'use strict';
-    /*
-    list to complete:
-    add "click" for notification popups
-    save settings to local storage
-    icons for different posts
-    */
 
     /*****************
     Variables
@@ -26,9 +20,11 @@
     var $chartNav = $('#chart-links li')
 
     //start nav off the page
-    $nav.css('left', -$nav.outerWidth());
 
-    let msg = '<div class="pop-notification"><h3>Notifcations</h3><ul><li>You have a new message!</li><li>A new version is available</li></ul></div>';
+    // $nav.css('left', -$nav.outerWidth());
+
+    //create the Notifcations for header popout
+    let msg = '<div class="pop-notification"><h3>Notifcations</h3><ul><li>Adam mentioned you in a comment!</li><li>Tagged in 2 posts</li></ul></div>';
 
     $('header').append(msg);
 
@@ -128,7 +124,8 @@
     //Bell icon clicked
     bellAlert.click(function(event) {
 
-      $('.pop-notification').slideToggle(300,'easeInOutSine');
+        $('.profile-alert').hide('fast');
+        $('.pop-notification').slideToggle(300, 'easeInOutSine');
     });
 
     //close alert
@@ -137,29 +134,50 @@
         clicked.slideUp("fast");
     })
 
+    //send message overlay
     sendMessage.click(function(event) {
+        var imageContainer;
         var $overlay = $("<div class='overlay'></div>");
-        var $imageContainer = $("<div class='msgContainer'>Message Sent!</div>");
+
+        var createMsg = function(msg) {
+            imageContainer = "<div class='msgContainer'>"
+            imageContainer += msg;
+            imageContainer += "</div>";
+        }
+
+
+        //check form validation
+        if ($('#user-search').val().length == 0 && $('.message-box').val().length == 0) {
+            createMsg("Please fill out both fields");
+        } else if ($('#user-search').val().length > 0 && $('.message-box').val().length == 0) {
+
+            createMsg("Please type a message");
+        } else if ($('#user-search').val().length == 0 && $('.message-box').val().length > 0) {
+            createMsg("Please find a user");
+        } else {
+            createMsg("Message Sent");
+        }
 
         //add overlay to DOM
-        $overlay.append($imageContainer)
+        $overlay.append(imageContainer)
         $(".message-user").append($overlay);
 
         //show overlay
         $overlay.show().animate({
             opacity: '1',
             top: '7%'
-        }, 'slow','easeOutBack', function() {
+        }, 'slow', 'easeOutBack', function() {
 
             //wait before removing popup
             setTimeout(function() {
                 $overlay.animate({
-                  opacity: '0',
-                  top: '-67%'
-                },'slow', 'easeInBack', function(){
+                    opacity: '0',
+                    top: '-67%'
+                }, 'slow', 'easeInBack', function() {
 
-                  //remove from DOM after anim complete
-                  $overlay.remove();
+                    //remove from DOM after anim complete
+                    $overlay.remove();
+                    sendMessage.blur();
                 });
             }, 1000);
         });
@@ -273,6 +291,62 @@
 
     $("#user-search").autocomplete({
         source: autofillNames
+    });
+
+    /*****************
+      Save settings events
+    ******************/
+
+    //set the checkbox based on it's saved value
+    $(function() {
+
+        var email = localStorage.getItem("emailChecked");
+        var profile = localStorage.getItem("profileChecked");
+        var timezone = localStorage.getItem("timezoneValue");
+
+        if (email !== null) {
+            $('#email-notification').attr("checked", "checked");
+        }
+        if (profile !== null) {
+            $('#profile-public').attr("checked", "checked");
+        }
+
+        //set timezone that is saved
+        if (timezone !== null) {
+          $('#timezone').val(timezone)
+        } else {
+          $('#timezone').val('gmt');
+        }
+    });
+
+
+    //save selected settings
+    $('#save-settings').click(function() {
+        let $overlay = $('.overlay2');
+
+        localStorage.timezoneValue = $('#timezone').val();
+
+        if ($('#email-notification').is(":checked")) {
+            localStorage.emailChecked = 1;
+        } else {
+            localStorage.removeItem("emailChecked");
+        }
+
+        if ($('#profile-public').is(":checked")) {
+            localStorage.profileChecked = 1;
+        } else {
+            localStorage.removeItem("profileChecked");
+        }
+
+        //animate the overlay
+        $overlay.fadeIn(500, function() {
+          setTimeout(function() {
+              $overlay.fadeOut(500, function() {
+              $('#save-settings').blur();
+              });
+          }, 1000);
+        });
+
     });
 
 

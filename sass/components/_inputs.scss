@@ -1,34 +1,42 @@
 .input,
 textarea {
-  font-family: $fontFam;
-  font-size: .9em;
+    font-family: $fontFam;
+    font-size: 0.9em;
 }
-
 
 .input {
-  margin: 0 auto 1em;
-  min-width : 270px;
-  width : 80%;
-  height    : 35px;
-  padding-left  : 10px;
-  color         : #2d3945;
-  border: 1px solid $grayLightColor;
-  border-radius : 5px;
+    margin: 0 auto 1em;
+    min-width: 270px;
+    width: 80%;
+    max-width: 500px;
+    height: 35px;
+    padding-left: 10px;
+    color: #2d3945;
+    border: 1px solid $grayLightColor;
+    border-radius: 5px;
 
+    @include mQuery(desktop){
+      // text-align: center;
+    }
 }
 
+.input-main {
+    @include mQuery(desktop) {
+        position: absolute;
+        top: 0;
+        right: 30px;
+    }
+}
 
 .message-box {
-  height        : 100px;
-  padding-top       : 10px;
+    height: 100px;
+    padding-top: 10px;
 }
 
-textarea {
-
-}
+textarea {}
 
 .ui-widget {
     font-family: $fontFam;
-    font-size: .9em;
+    font-size: 0.9em;
     color: $grayLightColor;
 }

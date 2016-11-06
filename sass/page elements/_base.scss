@@ -19,11 +19,21 @@ ul {
 
 .line {
 	@include accentLine(1px, $lineWidth);
+
+  @include mQuery(desktop){
+    display: none;
+  }
 }
 
 .section {
   text-align: center;
   color: $grayLightColor;
+  @include mQuery(desktop){
+    position: relative;
+    text-align: left;
+    padding-left: 1em;;
+
+  }
 }
 
 .section > h1 {
@@ -42,15 +52,25 @@ ul {
 .content {
   width: 100%;
   max-width: 1200px;
-  @include mQuery(tablet){
-    // background-image: url("../dashboard.png");
-    top: 0px;
-    margin: auto;
-    z-index: -1000;
-    position: absolute;
-    left: 10%;
-    right: 10%;
-    background-repeat: no-repeat;
+  @include mQuery(desktop){
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+.flex-sections {
+  @include mQuery(desktop){
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 59px;
   }
 
+}
+
+.flex-item {
+  @include mQuery(desktop){
+    width: 480px;
+    border: 1px solid $lineColor;
+    // padding-left: 1em;
+  }
 }

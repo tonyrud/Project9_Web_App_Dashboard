@@ -7,14 +7,31 @@ button[type='submit'] {
   margin: .5em auto 1em;
   display: block;
   width: 80%;
+  max-width: 300px;
   min-width : 270px;
   text-align: center;
   font-weight: 300;
   border-radius: .25em;
   font-size: 1em;
   cursor: pointer;
+
+  &:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+  }
+
+  @include mQuery(desktop){
+    max-width: 1000px;
+    min-width: 190px;
+  }
+
 }
 
 #cancel {
   background: $grayLightColor;
+}
+
+.button-container {
+  @include mQuery(tablet){
+    @include flexCenter(row);
+  }
 }
