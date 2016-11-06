@@ -230,7 +230,7 @@ button[type='submit'] {
   box-sizing: border-box; }
 
 body {
-  background: #eee;
+  background: white;
   color: #fff;
   font-family: "Open Sans", sans-serif; }
 
@@ -520,11 +520,6 @@ main {
     align-items: center;
     margin: 2em;
     font-size: .9em; }
-    @media (min-width: 1024px) {
-      main #chart-links {
-        position: absolute;
-        top: 121px;
-        right: 20px; } }
     main #chart-links li {
       cursor: pointer;
       padding: .25em 1em;
