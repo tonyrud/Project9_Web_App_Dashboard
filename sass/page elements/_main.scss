@@ -9,6 +9,12 @@ main {
     margin-left: 59px;
   }
 
+  h2 {
+    @include mQuery(desktop){
+      float: left;
+    }
+  }
+
 
   .alert {
     background: $alertColor;
@@ -61,9 +67,8 @@ main {
     font-size: .9em;
 
     @include mQuery(desktop){
-      // position: absolute;
-      // top: 121px;
-      // right: 20px;
+      float: right;
+      margin: 1em;
     }
 
     li {

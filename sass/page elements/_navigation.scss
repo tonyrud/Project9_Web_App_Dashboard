@@ -8,15 +8,16 @@
     z-index: 100;
 
     @include mQuery(tablet) {
-        display: block;
+        display: block !important;
+        left: 0 !important;
         position: fixed;
-        left: 0;
         width: 60px;
         top: 70px;
     };
 
     @include mQuery(desktop) {
         position: absolute;
+
     };
 }
 

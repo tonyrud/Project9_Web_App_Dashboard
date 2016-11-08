@@ -427,9 +427,9 @@ header,
   z-index: 100; }
   @media (min-width: 768px) {
     #main-nav {
-      display: block;
+      display: block !important;
+      left: 0 !important;
       position: fixed;
-      left: 0;
       width: 60px;
       top: 70px; } }
   @media (min-width: 1024px) {
@@ -482,6 +482,9 @@ main {
   @media (min-width: 1024px) {
     main {
       margin-left: 59px; } }
+  @media (min-width: 1024px) {
+    main h2 {
+      float: left; } }
   main .alert {
     background: #bf748f;
     padding: 0 1.15em;
@@ -520,6 +523,10 @@ main {
     align-items: center;
     margin: 2em;
     font-size: .9em; }
+    @media (min-width: 1024px) {
+      main #chart-links {
+        float: right;
+        margin: 1em; } }
     main #chart-links li {
       cursor: pointer;
       padding: .25em 1em;
